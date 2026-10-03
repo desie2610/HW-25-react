@@ -1,65 +1,139 @@
-#root {
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+
+  background: #030405;
+}
+
+body {
+  margin: 0;
+
+  min-width: 320px;
   min-height: 100vh;
+
+  color: #cbd1d5;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(95, 110, 120, 0.08),
+      transparent 40%
+    ),
+    linear-gradient(
+      180deg,
+      #080b0e 0%,
+      #030405 70%,
+      #010202 100%
+    );
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-main {
-  min-height: calc(100vh - 76px);
-  position: relative;
-}
+body::before {
+  content: '';
 
-/* Небольшой эффект лунного света */
-
-main::before {
-  content: "";
   position: fixed;
-  width: 420px;
-  height: 420px;
-  top: 90px;
-  right: -180px;
-  border-radius: 50%;
-  background: rgba(94, 113, 160, 0.07);
-  filter: blur(90px);
+  inset: 0;
+
   pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at center,
+      transparent 25%,
+      rgba(0, 0, 0, 0.35) 100%
+    );
+
   z-index: -1;
 }
 
-/* Плавное появление страниц */
-
-main {
-  animation: pageAppear 500ms ease both;
+a {
+  color: inherit;
 }
 
-@keyframes pageAppear {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+button,
+input {
+  font: inherit;
 }
 
-/* Общий стиль выделения текста */
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
 
 h1,
 h2,
 h3,
+h4,
 p {
-  text-wrap: pretty;
+  margin-top: 0;
 }
 
-/* Небольшое свечение заголовков */
-
-h1 {
-  text-shadow: 0 0 30px rgba(130, 150, 190, 0.12);
+/* Плавный скролл */
+html {
+  scroll-behavior: smooth;
 }
 
-/* На маленьких экранах */
+/* Выделение текста */
+::selection {
+  color: #e8ecef;
+  background: rgba(120, 140, 150, 0.3);
+}
 
-@media (max-width: 600px) {
-  main {
-    min-height: calc(100vh - 65px);
-  }
+/* Скроллбар */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030405;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #252c31;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3b454c;
+}
+
+.app {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(95, 110, 120, 0.08),
+      transparent 40%
+    ),
+    linear-gradient(
+      180deg,
+      #080b0e 0%,
+      #030405 70%,
+      #010202 100%
+    );
 }

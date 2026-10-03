@@ -1,117 +1,143 @@
 .container {
-  min-height: calc(100vh - 76px);
-
-  padding: 45px 40px 60px;
+  width: 100%;
+  min-height: calc(100vh - 70px);
+  padding: 35px 20px 50px;
 }
 
 .form {
   display: flex;
+  align-items: center;
   justify-content: center;
   gap: 10px;
 
-  max-width: 700px;
+  width: 100%;
+  max-width: 650px;
 
-  margin: 0 auto 35px;
+  margin: 0 auto 30px;
 }
 
 .input {
   width: 100%;
+  height: 44px;
 
-  padding: 13px 17px;
+  padding: 0 16px;
 
-  color: #e8ecf4;
-  font-size: 15px;
+  color: #d8dde1;
+  background: rgba(12, 15, 18, 0.9);
 
-  background: rgba(15, 20, 30, 0.85);
-
-  border: 1px solid rgba(150, 165, 195, 0.14);
-  border-radius: 7px;
+  border: 1px solid rgba(150, 165, 175, 0.15);
+  border-radius: 6px;
 
   outline: none;
 
-  box-shadow:
-    inset 0 0 20px rgba(0, 0, 0, 0.15),
-    0 5px 20px rgba(0, 0, 0, 0.15);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.25);
 
   transition:
     border-color 250ms ease,
     box-shadow 250ms ease,
-    background-color 250ms ease;
+    background 250ms ease;
 }
 
 .input::placeholder {
-  color: #667084;
+  color: #687178;
+}
+
+.input:hover {
+  border-color: rgba(170, 185, 195, 0.25);
 }
 
 .input:focus {
-  background: rgba(17, 23, 34, 0.95);
+  background: rgba(15, 18, 21, 0.95);
 
-  border-color: rgba(155, 175, 210, 0.4);
+  border-color: rgba(180, 195, 205, 0.35);
 
   box-shadow:
-    0 0 0 3px rgba(130, 150, 185, 0.06),
-    0 0 25px rgba(90, 115, 160, 0.08);
+    0 0 0 2px rgba(150, 165, 175, 0.05),
+    0 0 18px rgba(150, 165, 175, 0.08);
 }
 
 .button {
   flex-shrink: 0;
 
-  padding: 0 24px;
+  height: 44px;
 
-  color: #e9edf5;
-  font-size: 15px;
-  font-weight: 500;
+  padding: 0 22px;
 
-  background:
-    linear-gradient(
-      180deg,
-      rgba(85, 105, 140, 0.45),
-      rgba(55, 70, 98, 0.45)
-    );
+  color: #cdd3d7;
+  background: rgba(25, 29, 33, 0.9);
 
-  border: 1px solid rgba(160, 175, 205, 0.16);
-  border-radius: 7px;
+  border: 1px solid rgba(150, 165, 175, 0.16);
+  border-radius: 6px;
 
-  box-shadow:
-    0 8px 20px rgba(0, 0, 0, 0.25),
-    inset 0 1px rgba(255, 255, 255, 0.05);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+
+  cursor: pointer;
 
   transition:
-    transform 200ms ease,
+    color 250ms ease,
     background 250ms ease,
     border-color 250ms ease,
-    box-shadow 250ms ease;
+    box-shadow 250ms ease,
+    transform 250ms ease;
 }
 
 .button:hover {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(105, 125, 160, 0.5),
-      rgba(65, 80, 110, 0.5)
-    );
+  color: #eef1f3;
 
-  border-color: rgba(180, 195, 220, 0.25);
+  background: rgba(40, 45, 50, 0.95);
 
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.35),
-    0 0 20px rgba(100, 125, 170, 0.08);
+  border-color: rgba(180, 195, 205, 0.3);
+
+  box-shadow: 0 0 15px rgba(150, 165, 175, 0.08);
+
+  transform: translateY(-1px);
 }
 
 .button:active {
-  transform: translateY(1px);
+  transform: translateY(0);
 }
 
-@media (max-width: 600px) {
+@media screen and (max-width: 650px) {
   .container {
-    padding: 30px 20px 50px;
+    padding: 25px 15px 40px;
   }
 
   .form {
-    gap: 7px;
+    max-width: 550px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .form {
+    gap: 8px;
+  }
+
+  .input {
+    height: 42px;
+    padding: 0 13px;
+    font-size: 14px;
   }
 
   .button {
+    height: 42px;
     padding: 0 16px;
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .form {
+    flex-direction: column;
+  }
+
+  .input,
+  .button {
+    width: 100%;
   }
 }

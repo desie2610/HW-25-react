@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { getTrendingMovies } from '../../services/api';
 import MovieList from '../../components/MovieList/MovieList';
 
+import css from './Home.module.css';
+
 function Home() {
   const [movies, setMovies] = useState([]);
 
@@ -20,8 +22,14 @@ function Home() {
   }, []);
 
   return (
-    <main>
-      <h1>Trending today</h1>
+    <main className={css.home}>
+      <div className={css.header}>
+        <span className={css.line}></span>
+
+        <h1 className={css.title}>Trending today</h1>
+
+        <span className={css.line}></span>
+      </div>
 
       <MovieList movies={movies} />
     </main>

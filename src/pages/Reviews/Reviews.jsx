@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
+
 import { useParams } from 'react-router-dom';
 
 import { getMovieReviews } from '../../services/api';
+
+import styles from './Reviews.module.css';
 
 function Reviews() {
   const { movieId } = useParams();
@@ -22,18 +25,29 @@ function Reviews() {
   }, [movieId]);
 
   if (!reviews.length) {
-    return <p>We don't have any reviews for this movie.</p>;
+    return (
+      <p className={styles.empty}>
+        We don't have any reviews for this movie.
+      </p>
+    );
   }
 
   return (
-    <ul>
-      {reviews.map(review => (
-        <li key={review.id}>
-          <h3>Author: {review.author}</h3>
-          <p>{review.content}</p>
-        </li>
-      ))}
-    </ul>
+    <section className={styles.reviews}>
+      <h2 className={styles.title}>Reviews</h2>
+
+      <ul className={styles.list}>
+        {reviews.map(review => (
+          <li className={styles.item} key={review.id}>
+            <h3 className={styles.author}>
+              Author: {review.author}
+            </h3>
+
+            <p className={styles.content}>{review.content}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }
 

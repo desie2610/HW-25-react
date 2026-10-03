@@ -1,20 +1,27 @@
 import { Suspense, lazy } from 'react';
+
 import { Route, Routes } from 'react-router-dom';
 
 import Header from './components/Header/Header';
 import Loader from './components/Loader/Loader';
 
+import './App.css';
+
 const Home = lazy(() => import('./pages/Home/Home'));
+
 const Movies = lazy(() => import('./pages/Movies/Movies'));
+
 const MovieDetailsPage = lazy(() =>
   import('./pages/MovieDetailsPage/MovieDetailsPage')
 );
+
 const Cast = lazy(() => import('./pages/Cast/Cast'));
+
 const Reviews = lazy(() => import('./pages/Reviews/Reviews'));
 
 function App() {
   return (
-    <>
+    <div className="app">
       <Header />
 
       <Suspense fallback={<Loader />}>
@@ -23,7 +30,10 @@ function App() {
 
           <Route path="/movies" element={<Movies />} />
 
-          <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
+          <Route
+            path="/movies/:movieId"
+            element={<MovieDetailsPage />}
+          >
             <Route path="cast" element={<Cast />} />
             <Route path="reviews" element={<Reviews />} />
           </Route>
@@ -31,7 +41,7 @@ function App() {
           <Route path="*" element={<Home />} />
         </Routes>
       </Suspense>
-    </>
+    </div>
   );
 }
 

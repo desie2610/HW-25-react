@@ -2,9 +2,11 @@ import PropTypes from 'prop-types';
 
 import MovieListItem from '../MovieListItem/MovieListItem';
 
+import css from './MovieList.module.css';
+
 function MovieList({ movies }) {
   return (
-    <ul>
+    <ul className={css.movieList}>
       {movies.map(movie => (
         <MovieListItem key={movie.id} movie={movie} />
       ))}

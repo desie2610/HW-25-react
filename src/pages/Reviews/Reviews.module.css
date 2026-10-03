@@ -1,61 +1,152 @@
+.reviews {
+  margin-top: 30px;
+  padding: 25px 0;
+}
+
+.title {
+  margin: 0 0 25px;
+
+  color: #d8dde1;
+
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+}
+
 .list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
 
   margin: 0;
-  padding: 20px 0;
+  padding: 0;
 
   list-style: none;
 }
 
 .item {
+  position: relative;
+
   padding: 22px 24px;
 
-  background:
-    linear-gradient(
-      135deg,
-      rgba(20, 26, 38, 0.82),
-      rgba(11, 15, 23, 0.9)
-    );
+  background: linear-gradient(
+    145deg,
+    rgba(24, 29, 34, 0.96),
+    rgba(7, 9, 11, 0.98)
+  );
 
-  border: 1px solid rgba(150, 165, 195, 0.09);
+  border: 1px solid rgba(150, 165, 175, 0.12);
   border-radius: 8px;
 
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.2),
-    inset 0 1px rgba(255, 255, 255, 0.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
 
   transition:
-    border-color 250ms ease,
-    box-shadow 250ms ease,
-    transform 250ms ease;
+    transform 300ms ease,
+    border-color 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.item::before {
+  content: '';
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+  width: 2px;
+
+  background: rgba(150, 170, 185, 0.45);
+
+  opacity: 0.4;
+
+  transition:
+    opacity 300ms ease,
+    box-shadow 300ms ease;
 }
 
 .item:hover {
   transform: translateY(-2px);
 
-  border-color: rgba(155, 175, 205, 0.16);
+  border-color: rgba(170, 185, 195, 0.25);
 
   box-shadow:
-    0 15px 35px rgba(0, 0, 0, 0.3),
-    0 0 25px rgba(90, 115, 160, 0.05);
+    0 12px 30px rgba(0, 0, 0, 0.45),
+    0 0 18px rgba(130, 150, 165, 0.06);
+}
+
+.item:hover::before {
+  opacity: 1;
+
+  box-shadow: 0 0 12px rgba(150, 170, 185, 0.3);
 }
 
 .author {
-  margin: 0 0 13px;
+  margin: 0 0 12px;
 
-  color: #cbd3e0;
+  color: #dce1e4;
 
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 500;
+  letter-spacing: 0.3px;
 }
 
 .content {
   margin: 0;
 
-  color: #858fa1;
+  color: #89939a;
 
   font-size: 14px;
-  line-height: 1.8;
+  line-height: 1.7;
+}
+
+.empty {
+  margin: 30px 0;
+
+  color: #69737a;
+
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .reviews {
+    margin-top: 25px;
+  }
+
+  .item {
+    padding: 19px 20px;
+  }
+
+  .title {
+    font-size: 21px;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  .reviews {
+    padding: 20px 0;
+  }
+
+  .title {
+    margin-bottom: 18px;
+
+    font-size: 19px;
+  }
+
+  .item {
+    padding: 17px 18px;
+  }
+
+  .author {
+    font-size: 15px;
+  }
+
+  .content {
+    font-size: 13px;
+    line-height: 1.6;
+  }
 }

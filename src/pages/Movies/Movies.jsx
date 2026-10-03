@@ -1,11 +1,16 @@
 import { useEffect, useState } from 'react';
+
 import { useSearchParams } from 'react-router-dom';
 
 import { searchMovies } from '../../services/api';
+
 import MovieList from '../../components/MovieList/MovieList';
+
+import styles from './Movies.module.css';
 
 function Movies() {
   const [searchParams, setSearchParams] = useSearchParams();
+
   const query = searchParams.get('query') || '';
 
   const [movies, setMovies] = useState([]);
@@ -42,16 +47,20 @@ function Movies() {
   };
 
   return (
-    <main>
-      <form onSubmit={handleSubmit}>
+    <main className={styles.container}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <input
+          className={styles.input}
           type="text"
           name="query"
           defaultValue={query}
-          placeholder="Search movies"
+          placeholder="Search movies..."
+          autoComplete="off"
         />
 
-        <button type="submit">Search</button>
+        <button className={styles.button} type="submit">
+          Search
+        </button>
       </form>
 
       <MovieList movies={movies} />
