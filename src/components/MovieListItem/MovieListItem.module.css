@@ -1,0 +1,83 @@
+.item {
+  position: relative;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(150, 165, 195, 0.08);
+  border-radius: 10px;
+
+  background: #0d1119;
+
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.35),
+    0 0 0 rgba(100, 125, 170, 0);
+
+  transition:
+    transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 400ms ease,
+    border-color 400ms ease;
+}
+
+.item:hover {
+  transform: translateY(-8px);
+
+  border-color: rgba(150, 170, 205, 0.2);
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.55),
+    0 0 30px rgba(85, 110, 160, 0.08);
+}
+
+.link {
+  display: block;
+
+  color: #e6eaf2;
+  text-decoration: none;
+}
+
+.poster {
+  display: block;
+
+  width: 100%;
+  aspect-ratio: 2 / 3;
+
+  object-fit: cover;
+
+  filter: brightness(0.82) saturate(0.8);
+
+  transition:
+    transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 600ms ease;
+}
+
+.item:hover .poster {
+  transform: scale(1.035);
+
+  filter: brightness(0.98) saturate(0.95);
+}
+
+.title {
+  position: relative;
+
+  margin: 0;
+  padding: 14px 15px 16px;
+
+  color: #dfe5ef;
+
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.35;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(13, 17, 25, 0.96),
+      rgba(8, 11, 17, 1)
+    );
+
+  transition: color 250ms ease;
+}
+
+.item:hover .title {
+  color: #f1f4fa;
+}

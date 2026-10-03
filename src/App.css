@@ -1,0 +1,65 @@
+#root {
+  min-height: 100vh;
+}
+
+main {
+  min-height: calc(100vh - 76px);
+  position: relative;
+}
+
+/* Небольшой эффект лунного света */
+
+main::before {
+  content: "";
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  top: 90px;
+  right: -180px;
+  border-radius: 50%;
+  background: rgba(94, 113, 160, 0.07);
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Плавное появление страниц */
+
+main {
+  animation: pageAppear 500ms ease both;
+}
+
+@keyframes pageAppear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Общий стиль выделения текста */
+
+h1,
+h2,
+h3,
+p {
+  text-wrap: pretty;
+}
+
+/* Небольшое свечение заголовков */
+
+h1 {
+  text-shadow: 0 0 30px rgba(130, 150, 190, 0.12);
+}
+
+/* На маленьких экранах */
+
+@media (max-width: 600px) {
+  main {
+    min-height: calc(100vh - 65px);
+  }
+}
